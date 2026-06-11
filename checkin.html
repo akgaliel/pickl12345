@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ticket Check-In — FGS x GoPickle</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: #0D0052;
+    transition: background 0.6s ease;
+  }
+  body.valid   { background: linear-gradient(135deg, #0a3d1f 0%, #0f5c2e 100%); }
+  body.invalid { background: linear-gradient(135deg, #3d0a0a 0%, #5c1010 100%); }
+  body.used    { background: linear-gradient(135deg, #2a1a00 0%, #4a3000 100%); }
+  body.loading { background: #0D0052; }
+
+  .card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 28px;
+    padding: 48px 40px;
+    max-width: 440px;
+    width: 100%;
+    text-align: center;
+    backdrop-filter: blur(12px);
+  }
+
+  .status-icon {
+    font-size: 72px;
+    margin-bottom: 16px;
+    display: block;
+    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  @keyframes popIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to   { transform: scale(1);   opacity: 1; }
+  }
+
+  .status-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+  .valid   .status-label { color: #4DF09A; }
+  .invalid .status-label { color: #FF6B6B; }
+  .used    .status-label { color: #FFB347; }
+  .loading .status-label { color: rgba(255,255,255,0.6); }
+
+  .status-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 32px;
+  }
+
+  .divider {
+    height: 1px;
+    background: rgba(255,255,255,0.1);
+    margin: 28px 0;
+  }
+
+  .ticket-detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .ticket-detail:last-child { border-bottom: none; }
+  .td-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+  }
+  .td-value {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: white;
+    text-align: right;
+  }
+
+  .ticket-id {
+    margin-top: 24px;
+    background: rgba(0,0,0,0.25);
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.1em;
+    word-break: break-all;
+  }
+
+  .logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+  .logos img { height: 32px; object-fit: contain; }
+  .logos-x {
+    color: rgba(255,255,255,0.3);
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 200;
+  }
+
+  .btn-checkin {
+    display: inline-block;
+    margin-top: 28px;
+    background: linear-gradient(135deg, #4DF09A 0%, #00C96B 100%);
+    color: #0a3d1f;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    padding: 14px 36px;
+    border-radius: 100px;
+    cursor: pointer;
+    border: none;
+    width: 100%;
+    transition: all 0.2s;
+  }
+  .btn-checkin:hover { opacity: 0.9; transform: translateY(-2px); }
+  .btn-checkin:disabled {
+    background: rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.4);
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .scan-time {
+    margin-top: 12px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* Loading spinner */
+  .spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid rgba(255,255,255,0.1);
+    border-top-color: rgba(255,255,255,0.6);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 20px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body class="loading" id="body">
+<div class="card" id="card">
+
+  <div class="logos">
+    <img src="logo-white.png" alt="Feel Good Society">
+    <span class="logos-x">×</span>
+    <img src="gopickle-logo.png" alt="GoPickle">
+  </div>
+
+  <!-- Loading state -->
+  <div id="state-loading">
+    <div class="spinner"></div>
+    <div class="status-label">Checking ticket…</div>
+  </div>
+
+  <!-- Valid state -->
+  <div id="state-valid" style="display:none;">
+    <span class="status-icon">✅</span>
+    <div class="status-label">Valid Ticket</div>
+    <div class="status-sub">Welcome! Let them in.</div>
+    <div class="divider"></div>
+    <div id="ticket-details"></div>
+    <div class="ticket-id" id="ticket-id-display"></div>
+    <button class="btn-checkin" id="btn-checkin" onclick="markCheckedIn()">Mark as Checked In</button>
+    <div class="scan-time" id="scan-time"></div>
+  </div>
+
+  <!-- Already used state -->
+  <div id="state-used" style="display:none;">
+    <span class="status-icon">⚠️</span>
+    <div class="status-label">Already Checked In</div>
+    <div class="status-sub">This ticket was already scanned.</div>
+    <div class="divider"></div>
+    <div id="ticket-details-used"></div>
+    <div class="scan-time" id="checked-in-time"></div>
+  </div>
+
+  <!-- Invalid state -->
+  <div id="state-invalid" style="display:none;">
+    <span class="status-icon">❌</span>
+    <div class="status-label">Invalid Ticket</div>
+    <div class="status-sub">This ticket could not be verified. Do not admit.</div>
+  </div>
+
+</div>
+
+<script>
+  const KV_BASE = '/api';
+
+  function getParams() {
+    const p = new URLSearchParams(window.location.search);
+    return {
+      id:     p.get('id')   || '',
+      name:   p.get('name') || '',
+      email:  p.get('email') || '',
+      date:   p.get('date') || '5 July 2026',
+      time:   p.get('time') || '12:00 – 3:00pm',
+      venue:  p.get('venue') || 'GoPickle, Campbelltown',
+    };
+  }
+
+  function renderDetails(containerId, params) {
+    const container = document.getElementById(containerId);
+    const rows = [
+      { label: 'Name',   value: decodeURIComponent(params.name) },
+      { label: 'Date',   value: params.date },
+      { label: 'Time',   value: params.time },
+      { label: 'Venue',  value: decodeURIComponent(params.venue) },
+    ];
+    container.innerHTML = rows.map(r => `
+      <div class="ticket-detail">
+        <span class="td-label">${r.label}</span>
+        <span class="td-value">${r.value}</span>
+      </div>
+    `).join('');
+  }
+
+  async function checkTicket() {
+    const params = getParams();
+
+    if (!params.id) {
+      showState('invalid');
+      return;
+    }
+
+    try {
+      const res = await fetch(`${KV_BASE}/check?id=${encodeURIComponent(params.id)}`);
+      const data = await res.json();
+
+      if (data.status === 'used') {
+        renderDetails('ticket-details-used', params);
+        document.getElementById('checked-in-time').textContent =
+          'Checked in at: ' + new Date(data.checkedInAt).toLocaleTimeString('en-AU', { hour: '2-digit', minute: '2-digit' });
+        showState('used');
+      } else {
+        renderDetails('ticket-details', params);
+        document.getElementById('ticket-id-display').textContent = 'Ticket ID: ' + params.id;
+        document.getElementById('scan-time').textContent = 'Scanned at ' + new Date().toLocaleTimeString('en-AU', { hour: '2-digit', minute: '2-digit' });
+        showState('valid');
+      }
+    } catch (e) {
+      // If API unreachable, show ticket info anyway (offline fallback)
+      renderDetails('ticket-details', params);
+      document.getElementById('ticket-id-display').textContent = 'Ticket ID: ' + params.id;
+      document.getElementById('scan-time').textContent = '⚠️ Offline mode — verify manually';
+      document.getElementById('btn-checkin').disabled = true;
+      showState('valid');
+    }
+  }
+
+  async function markCheckedIn() {
+    const params = getParams();
+    const btn = document.getElementById('btn-checkin');
+    btn.disabled = true;
+    btn.textContent = 'Checking in…';
+    try {
+      await fetch(`${KV_BASE}/checkin`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: params.id, name: decodeURIComponent(params.name), checkedInAt: new Date().toISOString() })
+      });
+      btn.textContent = '✓ Checked In!';
+    } catch(e) {
+      btn.textContent = '✓ Marked (offline)';
+    }
+  }
+
+  function showState(state) {
+    document.getElementById('state-loading').style.display = 'none';
+    document.getElementById('state-valid').style.display   = 'none';
+    document.getElementById('state-used').style.display    = 'none';
+    document.getElementById('state-invalid').style.display = 'none';
+    document.getElementById('state-' + state).style.display = 'block';
+    document.getElementById('body').className = state;
+  }
+
+  checkTicket();
+</script>
+</body>
+</html>

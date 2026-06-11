@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Ticket — FGS x GoPickle</title>
+</head>
+<body style="margin:0;padding:0;background:#F4F1FB;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#F4F1FB;padding:40px 0;">
+  <tr>
+    <td align="center">
+      <table width="600" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;width:100%;">
+
+        <!-- Header -->
+        <tr>
+          <td align="center" style="padding:0 0 24px 0;">
+            <table cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:22px;font-weight:900;color:#2D1B69;letter-spacing:-0.02em;">Feel Good Society</td>
+                <td style="padding:0 12px;font-size:22px;font-weight:200;color:#B0A0D0;">×</td>
+                <td style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:22px;font-weight:900;color:#2D1B69;letter-spacing:-0.02em;">GoPickle</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- Hero band -->
+        <tr>
+          <td style="background:linear-gradient(135deg,#2D1B69 0%,#6600CC 60%,#FF006A 100%);border-radius:20px 20px 0 0;padding:40px 40px 32px;text-align:center;">
+            <p style="margin:0 0 6px;font-size:11px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.55);">You're in. Here's your ticket.</p>
+            <h1 style="margin:0 0 8px;font-size:36px;font-weight:900;color:#ffffff;line-height:1.1;letter-spacing:-0.02em;">You've been holding it<br>together. Now let go.</h1>
+            <p style="margin:0;font-size:15px;color:rgba(255,255,255,0.65);">Show this at the door — digital or printed.</p>
+          </td>
+        </tr>
+
+        <!-- Ticket body -->
+        <tr>
+          <td style="background:#ffffff;border-left:1px solid #EDE8F8;border-right:1px solid #EDE8F8;">
+
+            <!-- Tear line -->
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td width="24" style="background:#F4F1FB;border-radius:0 0 0 50%;"></td>
+                <td style="border-top:2px dashed #D8D0F0;"></td>
+                <td width="24" style="background:#F4F1FB;border-radius:0 0 50% 0;"></td>
+              </tr>
+            </table>
+
+            <!-- Details + QR -->
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="padding:32px 40px;">
+              <tr>
+                <!-- Left: details -->
+                <td valign="top" style="padding-right:32px;">
+
+                  <p style="margin:0 0 20px;font-size:13px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#FF3D7F;">Event Details</p>
+
+                  <!-- Attendee name -->
+                  <p style="margin:0 0 4px;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#8B7AA8;">Attendee</p>
+                  <p style="margin:0 0 20px;font-size:20px;font-weight:800;color:#1A0D2E;letter-spacing:-0.01em;">{{contact.first_name}} {{contact.last_name}}</p>
+
+                  <!-- Event rows -->
+                  <table cellpadding="0" cellspacing="0" border="0" style="width:100%;">
+                    <tr>
+                      <td style="padding:8px 0;border-bottom:1px solid #F0ECF8;">
+                        <p style="margin:0;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#8B7AA8;">Date</p>
+                        <p style="margin:2px 0 0;font-size:15px;font-weight:700;color:#1A0D2E;">5 July 2026</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding:8px 0;border-bottom:1px solid #F0ECF8;">
+                        <p style="margin:0;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#8B7AA8;">Time</p>
+                        <p style="margin:2px 0 0;font-size:15px;font-weight:700;color:#1A0D2E;">12:00 – 3:00pm</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding:8px 0;border-bottom:1px solid #F0ECF8;">
+                        <p style="margin:0;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#8B7AA8;">Venue</p>
+                        <p style="margin:2px 0 0;font-size:15px;font-weight:700;color:#1A0D2E;">GoPickle, Campbelltown</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding:8px 0;">
+                        <p style="margin:0;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#8B7AA8;">Ticket ID</p>
+                        <p style="margin:2px 0 0;font-size:13px;font-weight:700;color:#4A2C9E;font-family:'Courier New',monospace;letter-spacing:0.05em;">FGS-{{contact.id}}</p>
+                      </td>
+                    </tr>
+                  </table>
+
+                </td>
+
+                <!-- Right: QR code -->
+                <td valign="top" align="center" width="160" style="padding-top:36px;">
+                  <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&margin=6&color=2D1B69&data=https%3A%2F%2Ffeelgoodsociety.com.au%2Fcheckin%3Fid%3DFGS-{{contact.id}}%26name%3D{{contact.first_name}}%2B{{contact.last_name}}%26email%3D{{contact.email}}%26date%3D5%2BJuly%2B2026%26time%3D12%3A00%2B%E2%80%93%2B3%3A00pm%26venue%3DGoPickle%2BCampbelltown"
+                    alt="Scan at door"
+                    width="140"
+                    height="140"
+                    style="display:block;border-radius:12px;border:3px solid #EDE8F8;">
+                  <p style="margin:10px 0 0;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#8B7AA8;">Scan at door</p>
+                </td>
+              </tr>
+            </table>
+
+            <!-- Bottom tear line -->
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td width="24" style="background:#F4F1FB;border-radius:50% 0 0 0;"></td>
+                <td style="border-top:2px dashed #D8D0F0;"></td>
+                <td width="24" style="background:#F4F1FB;border-radius:0 50% 0 0;"></td>
+              </tr>
+            </table>
+
+          </td>
+        </tr>
+
+        <!-- What's included strip -->
+        <tr>
+          <td style="background:#2D1B69;border-radius:0 0 20px 20px;padding:28px 40px;">
+            <p style="margin:0 0 16px;font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.45);">What's waiting for you</p>
+            <table cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="padding-right:28px;font-size:14px;color:rgba(255,255,255,0.8);">🏓 Pickleball</td>
+                <td style="padding-right:28px;font-size:14px;color:rgba(255,255,255,0.8);">🎙️ Guest Speaker</td>
+                <td style="padding-right:28px;font-size:14px;color:rgba(255,255,255,0.8);">🍽️ Lunch &amp; Drink</td>
+                <td style="font-size:14px;color:rgba(255,255,255,0.8);">✨ Real Connection</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- Footer -->
+        <tr>
+          <td style="padding:28px 0;text-align:center;">
+            <p style="margin:0 0 8px;font-size:13px;color:#8B7AA8;">Questions? Reply to this email or reach us at <a href="mailto:akgaliel99@gmail.com" style="color:#4A2C9E;text-decoration:none;font-weight:600;">akgaliel99@gmail.com</a></p>
+            <p style="margin:0;font-size:12px;color:#B0A0D0;">© 2025 Feel Good Society · <a href="https://instagram.com/feelgoodsocietyco" style="color:#B0A0D0;">@feelgoodsocietyco</a></p>
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
