@@ -1,145 +1,269 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your Ticket — FGS x GoPickle</title>
-</head>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"></head>
 <body style="margin:0;padding:0;background:#F4F1FB;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
 
 <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#F4F1FB;padding:40px 0;">
-  <tr>
-    <td align="center">
-      <table width="600" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;width:100%;">
+  <tr><td align="center">
+    <table width="600" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;width:100%;">
 
-        <!-- Header -->
-        <tr>
-          <td align="center" style="padding:0 0 24px 0;">
-            <table cellpadding="0" cellspacing="0" border="0">
-              <tr>
-                <td style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:22px;font-weight:900;color:#2D1B69;letter-spacing:-0.02em;">Feel Good Society</td>
-                <td style="padding:0 12px;font-size:22px;font-weight:200;color:#B0A0D0;">×</td>
-                <td style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:22px;font-weight:900;color:#2D1B69;letter-spacing:-0.02em;">GoPickle</td>
-              </tr>
-            </table>
-          </td>
-        </tr>
+      <!-- Header -->
+      <tr>
+        <td align="center" style="padding:0 0 24px;">
+          <p style="margin:0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:22px;font-weight:900;color:#2D1B69;letter-spacing:-0.02em;">Feel Good Society × GoPickle</p>
+        </td>
+      </tr>
 
-        <!-- Hero band -->
-        <tr>
-          <td style="background:linear-gradient(135deg,#2D1B69 0%,#6600CC 60%,#FF006A 100%);border-radius:20px 20px 0 0;padding:40px 40px 32px;text-align:center;">
-            <p style="margin:0 0 6px;font-size:11px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.55);">You're in. Here's your ticket.</p>
-            <h1 style="margin:0 0 8px;font-size:36px;font-weight:900;color:#ffffff;line-height:1.1;letter-spacing:-0.02em;">You've been holding it<br>together. Now let go.</h1>
-            <p style="margin:0;font-size:15px;color:rgba(255,255,255,0.65);">Show this at the door — digital or printed.</p>
-          </td>
-        </tr>
+      <!-- Hero -->
+      <tr>
+        <td style="background:linear-gradient(135deg,#2D1B69 0%,#6600CC 60%,#FF006A 100%);border-radius:20px 20px 0 0;padding:40px 40px 32px;text-align:center;">
+          <p style="margin:0 0 6px;font-size:11px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.55);">You're in. Here's your ticket.</p>
+          <h1 style="margin:0 0 8px;font-size:32px;font-weight:900;color:#ffffff;line-height:1.15;letter-spacing:-0.02em;">You've been holding it together.<br>Now let go.</h1>
+          <p style="margin:0;font-size:15px;color:rgba(255,255,255,0.65);">Show this at the door — digital or printed.</p>
+        </td>
+      </tr>
 
-        <!-- Ticket body -->
-        <tr>
-          <td style="background:#ffffff;border-left:1px solid #EDE8F8;border-right:1px solid #EDE8F8;">
+      <!-- Ticket body -->
+      <tr>
+        <td style="background:#ffffff;border-left:1px solid #EDE8F8;border-right:1px solid #EDE8F8;padding:32px 40px;">
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
 
-            <!-- Tear line -->
-            <table width="100%" cellpadding="0" cellspacing="0" border="0">
-              <tr>
-                <td width="24" style="background:#F4F1FB;border-radius:0 0 0 50%;"></td>
-                <td style="border-top:2px dashed #D8D0F0;"></td>
-                <td width="24" style="background:#F4F1FB;border-radius:0 0 50% 0;"></td>
-              </tr>
-            </table>
+              <!-- Left: details -->
+              <td valign="top" style="padding-right:32px;">
+                <p style="margin:0 0 6px;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#8B7AA8;">Attendee</p>
+                <p style="margin:0 0 24px;font-size:22px;font-weight:800;color:#1A0D2E;">{{contact.first_name}} {{contact.last_name}}</p>
 
-            <!-- Details + QR -->
-            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="padding:32px 40px;">
-              <tr>
-                <!-- Left: details -->
-                <td valign="top" style="padding-right:32px;">
+                <table cellpadding="0" cellspacing="0" border="0" style="width:100%;">
+                  <tr><td style="padding:8px 0;border-bottom:1px solid #F0ECF8;">
+                    <p style="margin:0;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#8B7AA8;">Date</p>
+                    <p style="margin:2px 0 0;font-size:15px;font-weight:700;color:#1A0D2E;">Sunday, 5 July 2026</p>
+                  </td></tr>
+                  <tr><td style="padding:8px 0;border-bottom:1px solid #F0ECF8;">
+                    <p style="margin:0;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#8B7AA8;">Time</p>
+                    <p style="margin:2px 0 0;font-size:15px;font-weight:700;color:#1A0D2E;">12:00 – 3:00pm</p>
+                    <p style="margin:2px 0 0;font-size:12px;color:#8B7AA8;">Doors open 11:45am</p>
+                  </td></tr>
+                  <tr><td style="padding:8px 0;border-bottom:1px solid #F0ECF8;">
+                    <p style="margin:0;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#8B7AA8;">Venue</p>
+                    <p style="margin:2px 0 0;font-size:15px;font-weight:700;color:#1A0D2E;">GoPickle Campbelltown</p>
+                    <p style="margin:2px 0 0;font-size:12px;color:#8B7AA8;">Campbelltown, NSW</p>
+                  </td></tr>
+                  <tr><td style="padding:8px 0;">
+                    <p style="margin:0;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#8B7AA8;">Ticket ID</p>
+                    <p style="margin:2px 0 0;font-size:13px;font-weight:700;color:#4A2C9E;font-family:'Courier New',monospace;">FGS-{{contact.id}}</p>
+                  </td></tr>
+                </table>
+              </td>
 
-                  <p style="margin:0 0 20px;font-size:13px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#FF3D7F;">Event Details</p>
+              <!-- Right: QR code -->
+              <td valign="top" align="center" width="160" style="padding-top:8px;">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=8&color=2D1B69&data=https%3A%2F%2Ffeelgoodsociety.com.au%2Fcheckin%3Fid%3DFGS-{{contact.id}}%26name%3D{{contact.first_name}}%2B{{contact.last_name}}%26email%3D{{contact.email}}%26date%3D5%2BJuly%2B2026%26time%3D12%3A00-3%3A00pm%26venue%3DGoPickle%2BCampbelltown"
+                  alt="Scan at door" width="160" height="160"
+                  style="display:block;border-radius:12px;border:3px solid #EDE8F8;">
+                <p style="margin:10px 0 0;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#8B7AA8;">Scan at door</p>
+              </td>
 
-                  <!-- Attendee name -->
-                  <p style="margin:0 0 4px;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#8B7AA8;">Attendee</p>
-                  <p style="margin:0 0 20px;font-size:20px;font-weight:800;color:#1A0D2E;letter-spacing:-0.01em;">{{contact.first_name}} {{contact.last_name}}</p>
+            </tr>
+          </table>
+        </td>
+      </tr>
 
-                  <!-- Event rows -->
-                  <table cellpadding="0" cellspacing="0" border="0" style="width:100%;">
-                    <tr>
-                      <td style="padding:8px 0;border-bottom:1px solid #F0ECF8;">
-                        <p style="margin:0;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#8B7AA8;">Date</p>
-                        <p style="margin:2px 0 0;font-size:15px;font-weight:700;color:#1A0D2E;">5 July 2026</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td style="padding:8px 0;border-bottom:1px solid #F0ECF8;">
-                        <p style="margin:0;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#8B7AA8;">Time</p>
-                        <p style="margin:2px 0 0;font-size:15px;font-weight:700;color:#1A0D2E;">12:00 – 3:00pm</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td style="padding:8px 0;border-bottom:1px solid #F0ECF8;">
-                        <p style="margin:0;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#8B7AA8;">Venue</p>
-                        <p style="margin:2px 0 0;font-size:15px;font-weight:700;color:#1A0D2E;">GoPickle, Campbelltown</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td style="padding:8px 0;">
-                        <p style="margin:0;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#8B7AA8;">Ticket ID</p>
-                        <p style="margin:2px 0 0;font-size:13px;font-weight:700;color:#4A2C9E;font-family:'Courier New',monospace;letter-spacing:0.05em;">FGS-{{contact.id}}</p>
-                      </td>
-                    </tr>
-                  </table>
+      <!-- Divider -->
+      <tr>
+        <td style="background:#ffffff;border-left:1px solid #EDE8F8;border-right:1px solid #EDE8F8;padding:0 40px;">
+          <div style="border-top:2px dashed #EDE8F8;"></div>
+        </td>
+      </tr>
 
-                </td>
+      <!-- What's included -->
+      <tr>
+        <td style="background:#ffffff;border-left:1px solid #EDE8F8;border-right:1px solid #EDE8F8;padding:32px 40px;">
+          <p style="margin:0 0 20px;font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#FF3D7F;">What's Included</p>
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td width="50%" valign="top" style="padding-right:12px;padding-bottom:12px;">
+                <table cellpadding="0" cellspacing="0" border="0" style="background:#F4F1FB;border-radius:12px;padding:16px;width:100%;">
+                  <tr>
+                    <td style="font-size:24px;padding-bottom:8px;">🏓</td>
+                  </tr>
+                  <tr>
+                    <td style="font-size:13px;font-weight:700;color:#1A0D2E;">Pickleball</td>
+                  </tr>
+                  <tr>
+                    <td style="font-size:12px;color:#8B7AA8;padding-top:4px;">All levels welcome — zero experience needed</td>
+                  </tr>
+                </table>
+              </td>
+              <td width="50%" valign="top" style="padding-left:12px;padding-bottom:12px;">
+                <table cellpadding="0" cellspacing="0" border="0" style="background:#F4F1FB;border-radius:12px;padding:16px;width:100%;">
+                  <tr>
+                    <td style="font-size:24px;padding-bottom:8px;">🎙️</td>
+                  </tr>
+                  <tr>
+                    <td style="font-size:13px;font-weight:700;color:#1A0D2E;">Guest Speaker</td>
+                  </tr>
+                  <tr>
+                    <td style="font-size:12px;color:#8B7AA8;padding-top:4px;">Real talk on mental health from someone who gets it</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td width="50%" valign="top" style="padding-right:12px;">
+                <table cellpadding="0" cellspacing="0" border="0" style="background:#F4F1FB;border-radius:12px;padding:16px;width:100%;">
+                  <tr>
+                    <td style="font-size:24px;padding-bottom:8px;">🍽️</td>
+                  </tr>
+                  <tr>
+                    <td style="font-size:13px;font-weight:700;color:#1A0D2E;">Lunch &amp; Drink</td>
+                  </tr>
+                  <tr>
+                    <td style="font-size:12px;color:#8B7AA8;padding-top:4px;">Fully provided — nothing extra to spend</td>
+                  </tr>
+                </table>
+              </td>
+              <td width="50%" valign="top" style="padding-left:12px;">
+                <table cellpadding="0" cellspacing="0" border="0" style="background:#F4F1FB;border-radius:12px;padding:16px;width:100%;">
+                  <tr>
+                    <td style="font-size:24px;padding-bottom:8px;">🎯</td>
+                  </tr>
+                  <tr>
+                    <td style="font-size:13px;font-weight:700;color:#1A0D2E;">Ice Breakers &amp; Games</td>
+                  </tr>
+                  <tr>
+                    <td style="font-size:12px;color:#8B7AA8;padding-top:4px;">Designed to spark real connections fast</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
 
-                <!-- Right: QR code -->
-                <td valign="top" align="center" width="160" style="padding-top:36px;">
-                  <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&margin=6&color=2D1B69&data=https%3A%2F%2Ffeelgoodsociety.com.au%2Fcheckin%3Fid%3DFGS-{{contact.id}}%26name%3D{{contact.first_name}}%2B{{contact.last_name}}%26email%3D{{contact.email}}%26date%3D5%2BJuly%2B2026%26time%3D12%3A00%2B%E2%80%93%2B3%3A00pm%26venue%3DGoPickle%2BCampbelltown"
-                    alt="Scan at door"
-                    width="140"
-                    height="140"
-                    style="display:block;border-radius:12px;border:3px solid #EDE8F8;">
-                  <p style="margin:10px 0 0;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#8B7AA8;">Scan at door</p>
-                </td>
-              </tr>
-            </table>
+      <!-- Divider -->
+      <tr>
+        <td style="background:#ffffff;border-left:1px solid #EDE8F8;border-right:1px solid #EDE8F8;padding:0 40px;">
+          <div style="border-top:1px solid #F0ECF8;"></div>
+        </td>
+      </tr>
 
-            <!-- Bottom tear line -->
-            <table width="100%" cellpadding="0" cellspacing="0" border="0">
-              <tr>
-                <td width="24" style="background:#F4F1FB;border-radius:50% 0 0 0;"></td>
-                <td style="border-top:2px dashed #D8D0F0;"></td>
-                <td width="24" style="background:#F4F1FB;border-radius:0 50% 0 0;"></td>
-              </tr>
-            </table>
+      <!-- What to know -->
+      <tr>
+        <td style="background:#ffffff;border-left:1px solid #EDE8F8;border-right:1px solid #EDE8F8;padding:32px 40px;">
+          <p style="margin:0 0 20px;font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#FF3D7F;">What to Know Before You Arrive</p>
 
-          </td>
-        </tr>
+          <!-- What to wear -->
+          <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:16px;">
+            <tr>
+              <td width="36" valign="top">
+                <div style="width:32px;height:32px;background:#EDE8F8;border-radius:8px;text-align:center;line-height:32px;font-size:16px;">👟</div>
+              </td>
+              <td valign="top" style="padding-left:14px;">
+                <p style="margin:0;font-size:13px;font-weight:700;color:#1A0D2E;">What to wear</p>
+                <p style="margin:4px 0 0;font-size:13px;color:#8B7AA8;line-height:1.5;">Comfortable activewear and a good pair of sneakers. Nothing fancy — just something you can move in.</p>
+              </td>
+            </tr>
+          </table>
 
-        <!-- What's included strip -->
-        <tr>
-          <td style="background:#2D1B69;border-radius:0 0 20px 20px;padding:28px 40px;">
-            <p style="margin:0 0 16px;font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.45);">What's waiting for you</p>
-            <table cellpadding="0" cellspacing="0" border="0">
-              <tr>
-                <td style="padding-right:28px;font-size:14px;color:rgba(255,255,255,0.8);">🏓 Pickleball</td>
-                <td style="padding-right:28px;font-size:14px;color:rgba(255,255,255,0.8);">🎙️ Guest Speaker</td>
-                <td style="padding-right:28px;font-size:14px;color:rgba(255,255,255,0.8);">🍽️ Lunch &amp; Drink</td>
-                <td style="font-size:14px;color:rgba(255,255,255,0.8);">✨ Real Connection</td>
-              </tr>
-            </table>
-          </td>
-        </tr>
+          <!-- What to bring -->
+          <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:16px;">
+            <tr>
+              <td width="36" valign="top">
+                <div style="width:32px;height:32px;background:#EDE8F8;border-radius:8px;text-align:center;line-height:32px;font-size:16px;">🎒</div>
+              </td>
+              <td valign="top" style="padding-left:14px;">
+                <p style="margin:0;font-size:13px;font-weight:700;color:#1A0D2E;">What to bring</p>
+                <p style="margin:4px 0 0;font-size:13px;color:#8B7AA8;line-height:1.5;">Just yourself and this ticket. Water bottle recommended. Everything else is taken care of.</p>
+              </td>
+            </tr>
+          </table>
 
-        <!-- Footer -->
-        <tr>
-          <td style="padding:28px 0;text-align:center;">
-            <p style="margin:0 0 8px;font-size:13px;color:#8B7AA8;">Questions? Reply to this email or reach us at <a href="mailto:akgaliel99@gmail.com" style="color:#4A2C9E;text-decoration:none;font-weight:600;">akgaliel99@gmail.com</a></p>
-            <p style="margin:0;font-size:12px;color:#B0A0D0;">© 2025 Feel Good Society · <a href="https://instagram.com/feelgoodsocietyco" style="color:#B0A0D0;">@feelgoodsocietyco</a></p>
-          </td>
-        </tr>
+          <!-- Arrive early -->
+          <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:16px;">
+            <tr>
+              <td width="36" valign="top">
+                <div style="width:32px;height:32px;background:#EDE8F8;border-radius:8px;text-align:center;line-height:32px;font-size:16px;">⏰</div>
+              </td>
+              <td valign="top" style="padding-left:14px;">
+                <p style="margin:0;font-size:13px;font-weight:700;color:#1A0D2E;">Arrive a little early</p>
+                <p style="margin:4px 0 0;font-size:13px;color:#8B7AA8;line-height:1.5;">Doors open at 11:45am. We kick off at 12:00pm sharp — arriving early means you're settled and ready to enjoy every minute.</p>
+              </td>
+            </tr>
+          </table>
 
-      </table>
-    </td>
-  </tr>
+          <!-- Coming alone -->
+          <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:16px;">
+            <tr>
+              <td width="36" valign="top">
+                <div style="width:32px;height:32px;background:#EDE8F8;border-radius:8px;text-align:center;line-height:32px;font-size:16px;">🙋</div>
+              </td>
+              <td valign="top" style="padding-left:14px;">
+                <p style="margin:0;font-size:13px;font-weight:700;color:#1A0D2E;">Coming alone? Perfect.</p>
+                <p style="margin:4px 0 0;font-size:13px;color:#8B7AA8;line-height:1.5;">Most people do. The whole event is designed so you're never standing alone — you'll be introduced and included from the moment you walk in.</p>
+              </td>
+            </tr>
+          </table>
+
+          <!-- Accessibility -->
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td width="36" valign="top">
+                <div style="width:32px;height:32px;background:#EDE8F8;border-radius:8px;text-align:center;line-height:32px;font-size:16px;">♿</div>
+              </td>
+              <td valign="top" style="padding-left:14px;">
+                <p style="margin:0;font-size:13px;font-weight:700;color:#1A0D2E;">Accessibility</p>
+                <p style="margin:4px 0 0;font-size:13px;color:#8B7AA8;line-height:1.5;">This event is fully inclusive. If you have specific needs, reply to this email and we'll make sure everything is sorted before you arrive.</p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <!-- Divider -->
+      <tr>
+        <td style="background:#ffffff;border-left:1px solid #EDE8F8;border-right:1px solid #EDE8F8;padding:0 40px;">
+          <div style="border-top:1px solid #F0ECF8;"></div>
+        </td>
+      </tr>
+
+      <!-- Location -->
+      <tr>
+        <td style="background:#ffffff;border-left:1px solid #EDE8F8;border-right:1px solid #EDE8F8;padding:32px 40px;">
+          <p style="margin:0 0 16px;font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#FF3D7F;">Getting There</p>
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td width="36" valign="top">
+                <div style="width:32px;height:32px;background:#EDE8F8;border-radius:8px;text-align:center;line-height:32px;font-size:16px;">📍</div>
+              </td>
+              <td valign="top" style="padding-left:14px;">
+                <p style="margin:0;font-size:13px;font-weight:700;color:#1A0D2E;">GoPickle Campbelltown</p>
+                <p style="margin:4px 0 8px;font-size:13px;color:#8B7AA8;">Campbelltown, NSW</p>
+                <a href="https://maps.google.com/?q=GoPickle+Campbelltown" style="display:inline-block;background:#2D1B69;color:white;font-size:12px;font-weight:700;padding:8px 18px;border-radius:100px;text-decoration:none;letter-spacing:0.05em;">📍 Open in Google Maps</a>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <!-- Bottom strip -->
+      <tr>
+        <td style="background:#2D1B69;border-radius:0 0 20px 20px;padding:28px 40px;text-align:center;">
+          <p style="margin:0 0 8px;font-size:16px;font-weight:800;color:white;">We can't wait to see you there.</p>
+          <p style="margin:0;font-size:13px;color:rgba(255,255,255,0.55);">— The Feel Good Society Team</p>
+        </td>
+      </tr>
+
+      <!-- Footer -->
+      <tr>
+        <td style="padding:28px 0;text-align:center;">
+          <p style="margin:0 0 8px;font-size:13px;color:#8B7AA8;">Questions? <a href="mailto:akgaliel99@gmail.com" style="color:#4A2C9E;font-weight:600;text-decoration:none;">akgaliel99@gmail.com</a></p>
+          <p style="margin:0;font-size:12px;color:#B0A0D0;">© 2025 Feel Good Society &nbsp;·&nbsp; <a href="https://instagram.com/feelgoodsocietyco" style="color:#B0A0D0;text-decoration:none;">@feelgoodsocietyco</a></p>
+        </td>
+      </tr>
+
+    </table>
+  </td></tr>
 </table>
-
 </body>
 </html>
